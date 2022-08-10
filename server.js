@@ -1,6 +1,3 @@
-/* eslint-disable no-unused-vars */
-/* eslint-disable dot-notation */
-/* eslint-disable linebreak-style */
 const express = require('express');
 
 const app = express();
@@ -33,11 +30,11 @@ app.get('/api/:rapperName', (req, res) => {
   if (rappers[rappersName]) {
     res.json(rappers[rappersName]);
   } else {
-    res.json(rappers['default']);
+    res.json(rappers.default);
   }
 });
 
-app.listen(PORT, () => {
+app.listen(process.env.PORT || PORT, () => {
   // eslint-disable-next-line no-console
   console.log('SERVER IS UP');
 });
