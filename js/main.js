@@ -1,5 +1,6 @@
 /* eslint-disable no-console */
 // eslint-disable-next-line no-use-before-define
+
 document.querySelector('button').addEventListener('click', apiRequest);
 
 async function apiRequest() {
