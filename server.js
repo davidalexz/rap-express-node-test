@@ -1,8 +1,9 @@
 const express = require('express');
 
 const app = express();
-const PORT = 8000;
 const cors = require('cors');
+
+const PORT = 8000;
 
 app.use(cors());
 
@@ -48,14 +49,16 @@ const rappers = {
 app.get('/', (req, res) => {
   res.sendFile(`${__dirname}/index.html`);
 });
+
 app.use('/js', express.static('./js'));
-app.get('/api/:rapperName', (req, res) => {
+
+app.get('/api/:name', (req, res) => {
   // eslint-disable-next-line max-len
-  const rappersName = req.params.rapperName.toLowerCase(); // the parameter passed in the URL, exammple rappers[21 Savage]
+  const rappersName = req.params.name.toLowerCase(); // the parameter passed in the URL, exammple rappers[21 Savage]
   if (rappers[rappersName]) {
     res.json(rappers[rappersName]);
   } else {
-    res.json(rappers.default);
+    res.json(rappers.unknown);
   }
 });
 
